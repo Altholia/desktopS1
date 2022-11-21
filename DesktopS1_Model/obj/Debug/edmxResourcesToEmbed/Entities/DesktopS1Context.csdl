@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="S1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="InventoryCheckingTask">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+    <Property Name="TaskTypeId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FinishDate" Type="DateTime" Precision="0" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TaskStatus" Relationship="Self.FK_InventoryPlan_InventoryPlanStatus" FromRole="InventoryCheckingTask" ToRole="TaskStatus" />
+    <NavigationProperty Name="TaskType" Relationship="Self.FK_InventoryPlan_PlanType" FromRole="InventoryCheckingTask" ToRole="TaskType" />
+    <NavigationProperty Name="TaskDetail" Relationship="Self.FK_InventoryPlanDetail_InventoryPlan" FromRole="InventoryCheckingTask" ToRole="TaskDetail" />
+  </EntityType>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Specification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MinInventory" Type="Int32" Nullable="false" />
+    <Property Name="MaxInventory" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TaskDetail" Relationship="Self.FK_InventoryPlanDetail_Part" FromRole="Part" ToRole="TaskDetail" />
+    <NavigationProperty Name="PartCategory" Relationship="Self.FK_Part_PartCategory" FromRole="Part" ToRole="PartCategory" />
+    <NavigationProperty Name="PartStorage" Relationship="Self.FK_PartStorage_Part" FromRole="Part" ToRole="PartStorage" />
+  </EntityType>
+  <EntityType Name="PartCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Part" Relationship="Self.FK_Part_PartCategory" FromRole="PartCategory" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="PartStorage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartId" Type="Int32" Nullable="false" />
+    <Property Name="ZoneId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Part" Relationship="Self.FK_PartStorage_Part" FromRole="PartStorage" ToRole="Part" />
+    <NavigationProperty Name="Zone" Relationship="Self.FK_PartStorage_Zone" FromRole="PartStorage" ToRole="Zone" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Role" FromRole="Role" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Staff_Role" FromRole="Staff" ToRole="Role" />
+    <NavigationProperty Name="Warehouse" Relationship="Self.FK_Warehouse_Staff" FromRole="Staff" ToRole="Warehouse" />
+  </EntityType>
+  <EntityType Name="TaskDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="PartId" Type="Int32" Nullable="false" />
+    <Property Name="StockAmount" Type="Int32" Nullable="false" />
+    <Property Name="CheckAmount" Type="Int32" />
+    <Property Name="IsChecked" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InventoryCheckingTask" Relationship="Self.FK_InventoryPlanDetail_InventoryPlan" FromRole="TaskDetail" ToRole="InventoryCheckingTask" />
+    <NavigationProperty Name="Part" Relationship="Self.FK_InventoryPlanDetail_Part" FromRole="TaskDetail" ToRole="Part" />
+  </EntityType>
+  <EntityType Name="TaskStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="InventoryCheckingTask" Relationship="Self.FK_InventoryPlan_InventoryPlanStatus" FromRole="TaskStatus" ToRole="InventoryCheckingTask" />
+  </EntityType>
+  <EntityType Name="TaskType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="InventoryCheckingTask" Relationship="Self.FK_InventoryPlan_PlanType" FromRole="TaskType" ToRole="InventoryCheckingTask" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Manager" Type="Int32" Nullable="false" />
+    <Property Name="Area" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Warehouse_Staff" FromRole="Warehouse" ToRole="Staff" />
+    <NavigationProperty Name="Zone" Relationship="Self.FK_Zone_Warehouse" FromRole="Warehouse" ToRole="Zone" />
+  </EntityType>
+  <EntityType Name="Zone">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+    <Property Name="UpperLeftX" Type="Int32" Nullable="false" />
+    <Property Name="UpperLeftY" Type="Int32" Nullable="false" />
+    <Property Name="Width" Type="Int32" Nullable="false" />
+    <Property Name="Height" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PartStorage" Relationship="Self.FK_PartStorage_Zone" FromRole="Zone" ToRole="PartStorage" />
+    <NavigationProperty Name="Warehouse" Relationship="Self.FK_Zone_Warehouse" FromRole="Zone" ToRole="Warehouse" />
+  </EntityType>
+  <Association Name="FK_InventoryPlan_InventoryPlanStatus">
+    <End Role="TaskStatus" Type="Self.TaskStatus" Multiplicity="1" />
+    <End Role="InventoryCheckingTask" Type="Self.InventoryCheckingTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InventoryCheckingTask">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryPlan_PlanType">
+    <End Role="TaskType" Type="Self.TaskType" Multiplicity="1" />
+    <End Role="InventoryCheckingTask" Type="Self.InventoryCheckingTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TaskType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InventoryCheckingTask">
+        <PropertyRef Name="TaskTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryPlanDetail_InventoryPlan">
+    <End Role="InventoryCheckingTask" Type="Self.InventoryCheckingTask" Multiplicity="1" />
+    <End Role="TaskDetail" Type="Self.TaskDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InventoryCheckingTask">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskDetail">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventoryPlanDetail_Part">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="TaskDetail" Type="Self.TaskDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TaskDetail">
+        <PropertyRef Name="PartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Part_PartCategory">
+    <End Role="PartCategory" Type="Self.PartCategory" Multiplicity="1" />
+    <End Role="Part" Type="Self.Part" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Part">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartStorage_Part">
+    <End Role="Part" Type="Self.Part" Multiplicity="1" />
+    <End Role="PartStorage" Type="Self.PartStorage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartStorage">
+        <PropertyRef Name="PartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartStorage_Zone">
+    <End Role="Zone" Type="Self.Zone" Multiplicity="1" />
+    <End Role="PartStorage" Type="Self.PartStorage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zone">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartStorage">
+        <PropertyRef Name="ZoneId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouse_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Warehouse">
+        <PropertyRef Name="Manager" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zone_Warehouse">
+    <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+    <End Role="Zone" Type="Self.Zone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Warehouse">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Zone">
+        <PropertyRef Name="WarehouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="S1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="InventoryCheckingTask" EntityType="Self.InventoryCheckingTask" />
+    <EntitySet Name="Part" EntityType="Self.Part" />
+    <EntitySet Name="PartCategory" EntityType="Self.PartCategory" />
+    <EntitySet Name="PartStorage" EntityType="Self.PartStorage" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" />
+    <EntitySet Name="TaskDetail" EntityType="Self.TaskDetail" />
+    <EntitySet Name="TaskStatus" EntityType="Self.TaskStatus" />
+    <EntitySet Name="TaskType" EntityType="Self.TaskType" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" />
+    <EntitySet Name="Zone" EntityType="Self.Zone" />
+    <AssociationSet Name="FK_InventoryPlan_InventoryPlanStatus" Association="Self.FK_InventoryPlan_InventoryPlanStatus">
+      <End Role="TaskStatus" EntitySet="TaskStatus" />
+      <End Role="InventoryCheckingTask" EntitySet="InventoryCheckingTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryPlan_PlanType" Association="Self.FK_InventoryPlan_PlanType">
+      <End Role="TaskType" EntitySet="TaskType" />
+      <End Role="InventoryCheckingTask" EntitySet="InventoryCheckingTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryPlanDetail_InventoryPlan" Association="Self.FK_InventoryPlanDetail_InventoryPlan">
+      <End Role="InventoryCheckingTask" EntitySet="InventoryCheckingTask" />
+      <End Role="TaskDetail" EntitySet="TaskDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventoryPlanDetail_Part" Association="Self.FK_InventoryPlanDetail_Part">
+      <End Role="Part" EntitySet="Part" />
+      <End Role="TaskDetail" EntitySet="TaskDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Part_PartCategory" Association="Self.FK_Part_PartCategory">
+      <End Role="PartCategory" EntitySet="PartCategory" />
+      <End Role="Part" EntitySet="Part" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartStorage_Part" Association="Self.FK_PartStorage_Part">
+      <End Role="Part" EntitySet="Part" />
+      <End Role="PartStorage" EntitySet="PartStorage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartStorage_Zone" Association="Self.FK_PartStorage_Zone">
+      <End Role="Zone" EntitySet="Zone" />
+      <End Role="PartStorage" EntitySet="PartStorage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Role" Association="Self.FK_Staff_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouse_Staff" Association="Self.FK_Warehouse_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Warehouse" EntitySet="Warehouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zone_Warehouse" Association="Self.FK_Zone_Warehouse">
+      <End Role="Warehouse" EntitySet="Warehouse" />
+      <End Role="Zone" EntitySet="Zone" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,19 @@
+Seq	Zone	Category	PartName	Unit	Specification	StockAmount	CheckAmount
+0	A	Hydraulic	Beryllium Copper	Piece	18	216	200
+1	A	Hydraulic	Gr5 Titanium Alloy Gold Bar	Stick	20mm	524	500
+2	A	Mechanical	Polyethylene Fender	Piece	2-30	438	
+3	A	Mechanical	Wear Resistant Chain	Stick	200	518	500
+4	A	Electrical	Nylon Slide Track Curved Track	Stick	150cm	211	
+5	A	Electrical	Silo Cast SLATE	Piece	10-30mm	369	
+6	A	Transportation	Super Toughened Nylon Board	Piece	0.92-0.98	419	
+7	A	Transportation	Basalt Cast Stone Lining	Piece	300*200	166	100
+8	A	Transportation	Polymer Belt Pulley	Part	0.8-300mm	342	300
+9	A	Transportation	MC Nylon Bushing	Part	4-50mm	221	200
+10	A	Mechanical	White Nylon Board	Piece	6mm~20mm	548	
+11	B	Hydraulic	High Chromium Alloy Blades	Part	600/800	375	300
+12	B	Mechanical	Polymer Polyethylene Slider	Part	20*20*400	533	500
+13	B	Mechanical	Flame Retardant Lining Board	Piece	10-40mm	383	
+14	B	Transportation	Wear Resistant Nylon Rod	Part	10	172	172
+15	B	Transportation	Nylon Pad	Part	5mm	560	
+16	B	Other	Polyethylene Fender Panel	Piece	1000*2000	484	
+	

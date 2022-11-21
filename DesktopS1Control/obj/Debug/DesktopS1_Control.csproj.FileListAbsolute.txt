@@ -1,0 +1,9 @@
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\bin\Debug\DesktopS1Control.dll
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\bin\Debug\DesktopS1Control.pdb
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\obj\Debug\DesktopS1_Control.csproj.AssemblyReference.cache
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\obj\Debug\DesktopS1Control.Properties.Resources.resources
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\obj\Debug\DesktopS1Control.VerifyControl.resources
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\obj\Debug\DesktopS1_Control.csproj.GenerateResource.cache
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\obj\Debug\DesktopS1_Control.csproj.CoreCompileInputs.cache
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\obj\Debug\DesktopS1Control.dll
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1Control\obj\Debug\DesktopS1Control.pdb

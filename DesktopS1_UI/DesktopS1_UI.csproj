@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2EE8126-89B4-46C1-A6F6-3AE6DDD5BEDF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DesktopS1_UI</RootNamespace>
+    <AssemblyName>DesktopS1_UI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\C#\ItextSharpHelperClass\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ItextSharpHelperClass">
+      <HintPath>..\..\..\..\C#\ItextSharpHelperClass\bin\Debug\ItextSharpHelperClass.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CreateInventoryCheckingTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateInventoryCheckingTaskForm.Designer.cs">
+      <DependentUpon>CreateInventoryCheckingTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputInventoryCheckingResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputInventoryCheckingResultForm.Designer.cs">
+      <DependentUpon>InputInventoryCheckingResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryCheckingReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryCheckingReportForm.Designer.cs">
+      <DependentUpon>InventoryCheckingReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectZoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectZoneForm.Designer.cs">
+      <DependentUpon>SelectZoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerifyForm.Designer.cs">
+      <DependentUpon>VerifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewInventoryCheckingTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewInventoryCheckingTaskForm.Designer.cs">
+      <DependentUpon>ViewInventoryCheckingTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WarehouseDetailForm.Designer.cs">
+      <DependentUpon>WarehouseDetailForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CreateInventoryCheckingTaskForm.resx">
+      <DependentUpon>CreateInventoryCheckingTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputInventoryCheckingResultForm.resx">
+      <DependentUpon>InputInventoryCheckingResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryCheckingReportForm.resx">
+      <DependentUpon>InventoryCheckingReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SelectZoneForm.resx">
+      <DependentUpon>SelectZoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerifyForm.resx">
+      <DependentUpon>VerifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewInventoryCheckingTaskForm.resx">
+      <DependentUpon>ViewInventoryCheckingTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WarehouseDetailForm.resx">
+      <DependentUpon>WarehouseDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DesktopS1Control\DesktopS1_Control.csproj">
+      <Project>{AEF2E519-6F85-48DC-8D46-EEFA92B73D28}</Project>
+      <Name>DesktopS1_Control</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesktopS1_BLL\DesktopS1_BLL.csproj">
+      <Project>{a43c41bd-1976-4dd4-8618-57392cd91f86}</Project>
+      <Name>DesktopS1_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesktopS1_Helper\DesktopS1_Helper.csproj">
+      <Project>{C080DA2D-7DE3-4AA5-9F51-1427FD5F2A86}</Project>
+      <Name>DesktopS1_Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesktopS1_Model\DesktopS1_Model.csproj">
+      <Project>{b096ff0e-345a-4102-b485-84811ff9d0ec}</Project>
+      <Name>DesktopS1_Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

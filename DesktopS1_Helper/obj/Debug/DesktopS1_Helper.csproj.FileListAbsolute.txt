@@ -1,0 +1,12 @@
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\bin\Debug\DesktopS1_Helper.dll
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\bin\Debug\DesktopS1_Helper.pdb
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\obj\Debug\DesktopS1_Helper.csproj.AssemblyReference.cache
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\obj\Debug\DesktopS1_Helper.csproj.CoreCompileInputs.cache
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\obj\Debug\DesktopS1_Helper.dll
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\obj\Debug\DesktopS1_Helper.pdb
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\bin\Debug\BouncyCastle.Crypto.dll
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\bin\Debug\itextsharp.dll
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\bin\Debug\ItextSharpHelperClass.dll
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\bin\Debug\ItextSharpHelperClass.pdb
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\bin\Debug\ItextSharpHelperClass.dll.config
+D:\E\C# Engineering\S1\DesktopS1\DesktopS1_Helper\obj\Debug\DesktopS1_Helper.csproj.CopyComplete
